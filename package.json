@@ -1,6 +1,6 @@
 {
   "name": "rsuite-intl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Rsuite Intl",
   "main": "lib/index.js",
   "directories": {
@@ -21,14 +21,18 @@
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
   },
+  "files": [
+    "lib",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server  --inline --progress --colors --port 3000 --host 0.0.0.0 --devtool source-map ",
     "docs": "rm -rf assets &&  NODE_ENV=production webpack ",
-    "build": "rm -rf lib  && babel src --out-dir lib && cp -R src/less lib",
+    "build": "rm -rf lib  && babel src --out-dir lib",
     "publish-docs": "node docs/gh-pages.js",
     "prepages": "npm run docs",
     "pages": "node docs/gh-pages.js",
-    "predeploy": "npm run build",
+    "prerelease": "npm run build",
     "release": "npm publish",
     "test": "jest && codecov",
     "coverage": "jest --colors --coverage"
