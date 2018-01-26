@@ -5,7 +5,10 @@ class FormattedMessage extends React.Component {
 
   static propTypes = {
     id: PropTypes.string,
-    componentClass: PropTypes.element
+    componentClass: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.string
+    ])
   };
 
   static defaultProps = {
