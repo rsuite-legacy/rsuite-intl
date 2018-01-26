@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const propTypes = {
-  locale: PropTypes.object
-};
-
-const childContextTypes = {
-  locale: PropTypes.object
-};
-
-
 class IntlProvider extends React.Component {
+
+  static propTypes = {
+    locale: PropTypes.object
+  };
+
+  static childContextTypes = {
+    locale: PropTypes.object
+  };
 
   getChildContext() {
     const { locale } = this.props;
@@ -20,9 +19,5 @@ class IntlProvider extends React.Component {
     return React.Children.only(this.props.children);
   }
 }
-
-IntlProvider.propTypes = propTypes;
-IntlProvider.childContextTypes = childContextTypes;
-
 
 export default IntlProvider;
