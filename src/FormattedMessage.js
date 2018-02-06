@@ -22,6 +22,11 @@ class FormattedMessage extends React.Component {
   getText() {
     const { id } = this.props;
     const { locale } = this.context;
+
+    if (!locale) {
+      return id;
+    }
+
     const text = locale[id];
 
     if (!text) {
@@ -31,11 +36,11 @@ class FormattedMessage extends React.Component {
     return text;
   }
   render() {
-    const { componentClass: Component, id } = this.props;
+    const { componentClass: Component } = this.props;
 
     return (
       <Component>
-        {this.getText() || id}
+        {this.getText()}
       </Component>
     );
   }
